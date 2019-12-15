@@ -18,15 +18,15 @@ class Solution
     {
         String N2 = convertBinary(N);
         N2 = N2.substring(N2.indexOf("1")+1);
-		int max = 0;
-		while(N2.indexOf("1")!=-1)
-		{
-			int nextIndex = N2.indexOf("1");
-			N2 = N2.substring(nextIndex+1);
-			if(max<nextIndex) {
-				max = nextIndex;
-			}
+	int max = 0;
+	while(N2.indexOf("1")!=-1)
+	{
+		int nextIndex = N2.indexOf("1");
+		N2 = N2.substring(nextIndex+1);
+		if(max<nextIndex) {
+			max = nextIndex;
 		}
-		return max;
+	}
+	return max;
     }
 }
