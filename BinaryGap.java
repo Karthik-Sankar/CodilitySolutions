@@ -6,20 +6,27 @@ class Solution
 {
     public static String convertBinary(int N)
     {
-        StringBuffer binseq = new StringBuffer("");
+        StringBuffer buffer = new StringBuffer("");
         while(N>0)
         {
-            binseq.append(N%2);
+            buffer.append(N%2);
             N/=2;
         }
-        return new String(binseq.reverse());
+        return new String(buffer.reverse());
     }
     public int solution(int N) 
     {
-        String base = convertBinary(N);
-        Pattern p = Pattern.compile("1(.*)1");
-        Matcher m = p.matcher(base);
-        System.out.println(m.group(1));
-        return 0;
+        String N2 = convertBinary(N);
+        N2 = N2.substring(N2.indexOf("1")+1);
+		int max = 0;
+		while(N2.indexOf("1")!=-1)
+		{
+			int nextIndex = N2.indexOf("1");
+			N2 = N2.substring(nextIndex+1);
+			if(max<nextIndex) {
+				max = nextIndex;
+			}
+		}
+		return max;
     }
 }
